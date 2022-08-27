@@ -2,9 +2,15 @@ import React from 'react'
 
 function Products() {
     return (
-        <h1>
-            The Products Page
-        </h1>
+        <section>
+            <h1>The Products Page</h1>
+            <ul>
+                <li>A Book</li>
+                <li>A Carpet</li>
+                <li>An Online Course</li>
+            </ul>
+
+        </section>
     )
 }
 
