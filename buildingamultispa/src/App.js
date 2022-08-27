@@ -1,39 +1,16 @@
+// import "./styles.css";
 import React from 'react'
-import { Route } from 'react-router-dom';
-import Welcome from './pages/Welcome';
-import Products from './pages/Products';
-import MainHeader from './components/MainHeader';
-import ProductDetail from './pages/ProductDetail';
+import Home from "./components/Home";
+import About from "./components/About";
+import Nav from "./components/Nav";
+import { Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div>
-
-      <header>
-        <MainHeader />
-      </header>
-
-
-      <main>
-        <Route path="/welcome" >
-          <Welcome />
-        </Route>
-
-        <Route path="/products" >
-          <Products />
-        </Route>
-
-        <Route path="/product-detail/:productId">
-          <ProductDetail />
-        </Route>
-
-
-      </main>
-
-
-    </div>
-
-  );
+export default function App() {
+    return (
+        <div className="App">
+            <Nav />
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+        </div>
+    );
 }
-
-export default App;
