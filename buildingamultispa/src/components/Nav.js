@@ -10,8 +10,8 @@ function Nav() {
                     {/* <Link to="/">Home</Link> */}
                     {/* <a href="/">Home</a> */}
                     <NavLink activeClassName="selected" exact to="/">Home</NavLink>
-
-                    <NavLink to="/about">About</NavLink>
+                    <NavLink activeClassName="selected" to="/about">About</NavLink>
+                    <NavLink activeClassName="selected" to="/blog">blog</NavLink>
                 </ul>
             </div>
         </div>

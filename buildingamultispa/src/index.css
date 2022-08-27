@@ -25,6 +25,6 @@ p {
   color: #042b5f;
 }
 
-.active {
+.selected {
   background-color: red;
 }
