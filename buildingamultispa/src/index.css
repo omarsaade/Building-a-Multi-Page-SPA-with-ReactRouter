@@ -28,3 +28,10 @@ p {
 .selected {
   background-color: red;
 }
+
+.content {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 15px;
+}

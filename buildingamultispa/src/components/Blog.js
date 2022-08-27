@@ -9,9 +9,13 @@ export default class Blog extends Component {
 
 
     componentDidMount() {
+        console.log(this.props);
+        console.log(this.props.match.path); //{history: {…}, location: {…}, match: {…}, staticContext: undefined}
+
+
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({
                     users: res.data
                 })
@@ -19,14 +23,22 @@ export default class Blog extends Component {
     }
 
     render() {
+        const { users } = this.state;
+        const userList = users.map((user) =>
+            <div key={user.id}>
+                <div className='content'>
+                    <div>Name: {user.name}</div>
+                    <div>UserName : {user.username}</div>
+                </div>
+            </div>
+        )
+
         return (
             <div>
-                <h2>blog</h2>
-                <h2>This is blog section</h2>
+                <h2>Blog</h2>
+                <h2>This is Blog section</h2>
                 <div>
-                    {this.state.users.map((user) =>
-                        <div> name is {user.name} and useranme is {user.username} </div>
-                    )}
+                    {userList}
                 </div>
             </div>
         )
