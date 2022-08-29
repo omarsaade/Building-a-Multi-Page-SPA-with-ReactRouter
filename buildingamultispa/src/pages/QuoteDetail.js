@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, useParams } from 'react-router-dom'
-import Comments from '../../components/comments/Comments'
+import Comments from '../components/comments/Comments';
 
 function QuoteDetail() {
 
