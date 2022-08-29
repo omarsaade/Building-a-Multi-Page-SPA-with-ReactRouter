@@ -1,22 +1,46 @@
-// import "./styles.css";
 import React from 'react'
-import Home from "./components/Home";
-import About from "./components/About";
-import Nav from "./components/Nav";
-import Blog from './components/Blog';
-import Rout from './components/Rout'
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Welcome from './pages/Welcome';
+import Products from './pages/Products';
+import MainHeader from './components/MainHeader';
+import ProductDetail from './pages/ProductDetail';
 
-export default function App() {
-    return (
-        <div className="App">
-            <Nav />
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/blog" component={Blog} />
-                <Route path="/:test_params" component={Rout}></Route>
-            </Switch >
-        </div>
-    );
+function App() {
+  return (
+    <div>
+
+      <header>
+        <MainHeader />
+      </header>
+
+
+      <main>
+        <Switch>
+          <Route path='/' exact>
+            <Redirect to='/welcome' />
+          </Route>
+
+
+          <Route path="/welcome" >
+            <Welcome />
+          </Route>
+
+          <Route path="/products" exact >
+            <Products />
+          </Route>
+
+          {/* dynamic segment :productId */}
+          <Route path="/products/:productId">
+            <ProductDetail />
+          </Route>
+
+        </Switch>
+      </main>
+
+
+    </div>
+
+  );
 }
+
+export default App;
