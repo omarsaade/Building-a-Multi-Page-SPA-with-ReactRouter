@@ -1,46 +1,44 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Welcome from './pages/Welcome';
-import Products from './pages/Products';
-import MainHeader from './components/MainHeader';
-import ProductDetail from './pages/ProductDetail';
+import AllQuotes from './components/pages/AllQuotes';
+import QuoteDetail from './components/pages/QuoteDetail';
+import NewQuote from './components/pages/NewQuote';
+
+
 
 function App() {
+
   return (
-    <div>
 
-      <header>
-        <MainHeader />
-      </header>
+    <Switch>
 
-
-      <main>
-        <Switch>
-          <Route path='/' exact>
-            <Redirect to='/welcome' />
-          </Route>
+      <Route path='/' exact>
+        <Redirect to='/quotes' />
+      </Route>
 
 
-          <Route path="/welcome" >
-            <Welcome />
-          </Route>
+      <Route exact path="/quotes" >
+        <AllQuotes />
+      </Route>
 
-          <Route path="/products" exact >
-            <Products />
-          </Route>
+      <Route path="/quotes/:quoteId" >
+        <QuoteDetail />
+      </Route>
 
-          {/* dynamic segment :productId */}
-          <Route path="/products/:productId">
-            <ProductDetail />
-          </Route>
-
-        </Switch>
-      </main>
+      <Route path="/new-quote" >
+        <NewQuote />
+      </Route>
 
 
-    </div>
 
+    </Switch>
   );
 }
 
 export default App;
+
+
+
+
+
+
