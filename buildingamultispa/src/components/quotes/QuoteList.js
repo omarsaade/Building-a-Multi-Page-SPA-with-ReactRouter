@@ -4,6 +4,8 @@ import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
 
 
+// hayda esmo query parameters       ?sort=asc
+
 //sorting functionallity
 const sortQuotes = (quotes, ascending) => {
 
@@ -30,19 +32,22 @@ sort b to a lower index than a, i.e., b will come first. */
 const QuoteList = (props) => {
   // console.log("1");
   const history = useHistory();
-  console.log(history);
+  // console.log(history);
 
   const location = useLocation();
   // console.log(location);
   // { pathname: '/quotes', search: '?sort=asc', hash: '', state: undefined, key: 'wa51e2' }
 
-  //to save the current sorting
+  //to save the current sorting //hayda defauly javascript
+  //mesh shi bel react
   const queryParams = new URLSearchParams(location.search);
   // console.log(location.search);         ?sort = desc
 
   const isSortingAscending = queryParams.get('sort') === 'asc';
+  // const isS = queryParams.get('sort');
+  // console.log(isS);
   // get('sort') btraje3 el value taba3 el key
-  console.log(isSortingAscending); //false
+  // console.log(isSortingAscending); //false
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
   // console.log(props.quotes); (2)[{…}, {…}]
@@ -62,6 +67,9 @@ const QuoteList = (props) => {
 
   return (
     <Fragment>
+      {/* instead of prop quotes. */}
+      {/* And since this component function will be re-executed whenever we change the query parameters, */}
+      {/* we will get new sorted quotes whenever the query parameters change. */}
 
       <div className={classes.sorting}>
         <button onClick={changeSortingHandler}>
