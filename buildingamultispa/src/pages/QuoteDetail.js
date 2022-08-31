@@ -34,7 +34,7 @@ function QuoteDetail() {
         sendRequest(quoteId);
     }, [sendRequest, quoteId]);
 
-
+    //we need the spinner here cz of delay of time
     if (status === 'pending') {
         return <div className='centered'>
             <LoadingSpinner />
