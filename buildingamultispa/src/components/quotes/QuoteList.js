@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
 
@@ -30,13 +30,14 @@ sort b to a lower index than a, i.e., b will come first. */
 
 
 const QuoteList = (props) => {
-  // console.log("1");
+
   const history = useHistory();
-  // console.log(history);
+
+  const match = useRouteMatch();
+  console.log(match);
 
   const location = useLocation();
-  // console.log(location);
-  // { pathname: '/quotes', search: '?sort=asc', hash: '', state: undefined, key: 'wa51e2' }
+  console.log(location);
 
   //to save the current sorting //hayda defauly javascript
   //mesh shi bel react
@@ -47,7 +48,7 @@ const QuoteList = (props) => {
   // const isS = queryParams.get('sort');
   // console.log(isS);
   // get('sort') btraje3 el value taba3 el key
-  // console.log(isSortingAscending); //false
+  // console.lo1g(isSortingAscending); //false
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
   // console.log(props.quotes); (2)[{…}, {…}]
@@ -58,7 +59,14 @@ const QuoteList = (props) => {
   //query parameter is added
   const changeSortingHandler = () => {
     //So, that means that pushing this page here actually rerenders this component.
-    history.push('/quotes?sort=' + (isSortingAscending ? 'desc' : 'asc'));
+    //1- history.push('/quotes?sort=' + (isSortingAscending ? 'desc' : 'asc'));
+    //2- history.push(`${location.pathname}?sort=${(isSortingAscending ? 'desc' : 'asc')}`);
+    // console.log(location.pathname); //     /quotes
+    // console.log(match.url); //             /quotes 
+    history.push({
+      pathname: location.pathname,
+      search: `?sort=${(isSortingAscending ? 'desc' : 'asc')}`
+    });
   };
 
   //default desc
