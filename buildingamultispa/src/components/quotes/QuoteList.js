@@ -34,10 +34,10 @@ const QuoteList = (props) => {
   const history = useHistory();
 
   const match = useRouteMatch();
-  console.log(match);
+  // console.log(match);
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   //to save the current sorting //hayda defauly javascript
   //mesh shi bel react
@@ -63,6 +63,7 @@ const QuoteList = (props) => {
     //2- history.push(`${location.pathname}?sort=${(isSortingAscending ? 'desc' : 'asc')}`);
     // console.log(location.pathname); //     /quotes
     // console.log(match.url); //             /quotes 
+
     history.push({
       pathname: location.pathname,
       search: `?sort=${(isSortingAscending ? 'desc' : 'asc')}`

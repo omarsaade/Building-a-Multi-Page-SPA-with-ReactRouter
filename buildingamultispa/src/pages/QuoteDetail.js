@@ -18,7 +18,7 @@ function QuoteDetail() {
     const params = useParams();
 
     // console.log(params);// { quoteId: 'q1' }
-    console.log(match); // { path: '/quotes/:quoteId', url: '/quotes/q2', isExact: true, params: {… } }
+    // console.log(match); // { path: '/quotes/:quoteId', url: '/quotes/q2', isExact: true, params: {… } }
     const quote = DUMMY_QUOTES.find(quote => quote.id === params.quoteId);
 
     if (!quote) {
