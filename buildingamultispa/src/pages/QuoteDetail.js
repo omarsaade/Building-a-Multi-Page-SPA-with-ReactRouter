@@ -23,6 +23,7 @@ function QuoteDetail() {
 
     const { quoteId } = params;
 
+    //the arrangement is very important here
     const { sendRequest, status, data: loadedQuote, error } = useHttp(getSingleQuote, true)
     // console.log(params);// { quoteId: 'q1' }
     // console.log(match); // { path: '/quotes/:quoteId', url: '/quotes/q2', isExact: true, params: {… } }
