@@ -6,6 +6,7 @@ import useHttp from '../hooks/use-http';
 import { getSingleQuote } from '../lib/api';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 
+//before using firebase
 // const DUMMY_QUOTES = [
 //     { id: 'q1', author: 'Max', text: 'Learning React is fun!' },
 //     { id: 'q2', author: 'Maximlian', text: 'Learning React is great!' },
