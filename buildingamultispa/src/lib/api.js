@@ -1,4 +1,5 @@
-const FIREBASE_DOMAIN = 'https://route-2ecfd-default-rtdb.firebaseio.com';
+
+const FIREBASE_DOMAIN = 'https://routehttp-9885c-default-rtdb.firebaseio.com';
 
 
 //btjib kell el data
@@ -68,6 +69,9 @@ export async function addQuote(quoteData) {
 
 //bteb3at data lal firebase
 export async function addComment(requestData) {
+  console.log(requestData); //{commentData: {…}, quotedId: '-NAso2VCELsJ3yoFIrvt'}
+  console.log(requestData.quoteId);
+  console.log(requestData.commentData); //{text: 'ali'}
   const response = await fetch(`${FIREBASE_DOMAIN}/comments/${requestData.quoteId}.json`, {
     method: 'POST',
     body: JSON.stringify(requestData.commentData),
@@ -103,11 +107,11 @@ export async function getAllComments(quoteId) {
   for (const key in data) {
     const commentObj = {
       id: key,
-      ...data[key],
+      text: data[key],
     };
 
     transformedComments.push(commentObj);
   }
-
+  console.log(transformedComments);
   return transformedComments;
 }

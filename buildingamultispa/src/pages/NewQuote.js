@@ -11,6 +11,7 @@ function NewQuote() {
 
     useEffect(() => {
         if (status === 'completed') {
+            // console.log("completed");
             history.push('/quotes');
 
         }
@@ -19,6 +20,7 @@ function NewQuote() {
 
     const addQuoteHandler = (quoteData) => {
         sendRequest(quoteData);
+
     }
 
 
@@ -28,5 +30,4 @@ function NewQuote() {
 }
 
 export default NewQuote
-
 

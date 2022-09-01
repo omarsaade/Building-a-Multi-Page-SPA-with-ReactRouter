@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
 
@@ -8,12 +8,8 @@ import classes from './QuoteList.module.css';
 
 //sorting functionallity
 const sortQuotes = (quotes, ascending) => {
-
-  return quotes.sort(function compare(quoteA, quoteB) {
-    //     console.log(quoteA.id);
-    // console.log(quoteB.id);
+  return quotes.sort((quoteA, quoteB) => {
     if (ascending) {
-      // console.log(ascending); true
       return quoteA.id > quoteB.id ? 1 : -1;
     } else {
       return quoteA.id < quoteB.id ? 1 : -1;
@@ -33,7 +29,6 @@ const QuoteList = (props) => {
 
   const history = useHistory();
 
-  const match = useRouteMatch();
   // console.log(match);
 
   const location = useLocation();

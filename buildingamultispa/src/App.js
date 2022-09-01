@@ -20,7 +20,7 @@ function App() {
         </Route>
 
 
-        <Route exact path="/quotes" >
+        <Route path="/quotes" exact >
           <AllQuotes />
         </Route>
 
