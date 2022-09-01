@@ -19,7 +19,6 @@ function App() {
           <Redirect to='/quotes' />
         </Route>
 
-
         <Route path="/quotes" exact >
           <AllQuotes />
         </Route>
