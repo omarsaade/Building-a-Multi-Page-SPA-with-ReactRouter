@@ -15,6 +15,7 @@ const NewCommentForm = (props) => {
   const { onAddedComment } = props;
 
 
+  // al n2elo ano done
   useEffect(() => {
     if (status === 'completed' && !error) {
       onAddedComment();
@@ -23,12 +24,15 @@ const NewCommentForm = (props) => {
   }, [status, error, onAddedComment]);
 
 
+
   const submitFormHandler = (event) => {
     event.preventDefault();
 
     const enteredText = commentTextRef.current.value;
     sendRequest({ commentData: enteredText, quoteId: props.quoteId });
   };
+
+
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>

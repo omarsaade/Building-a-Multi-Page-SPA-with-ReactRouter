@@ -1,5 +1,6 @@
-
 const FIREBASE_DOMAIN = 'https://routehttp-9885c-default-rtdb.firebaseio.com';
+
+
 
 
 //btjib kell el data
@@ -27,6 +28,9 @@ export async function getAllQuotes() {
 
 
 
+
+
+
 // btjib data wahde li hye single quote
 export async function getSingleQuote(quoteId) {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes/${quoteId}.json`);
@@ -43,6 +47,8 @@ export async function getSingleQuote(quoteId) {
 
   return loadedQuote;
 }
+
+
 
 
 
@@ -67,11 +73,14 @@ export async function addQuote(quoteData) {
 
 
 
+
+
+
 //bteb3at data lal firebase
 export async function addComment(requestData) {
-  console.log(requestData); //{commentData: {…}, quotedId: '-NAso2VCELsJ3yoFIrvt'}
-  console.log(requestData.quoteId);
-  console.log(requestData.commentData); //{text: 'ali'}
+  // console.log(requestData); //{commentData: {…}, quotedId: '-NAso2VCELsJ3yoFIrvt'}
+  // console.log(requestData.quoteId);
+  // console.log(requestData.commentData); //{text: 'ali'}
   const response = await fetch(`${FIREBASE_DOMAIN}/comments/${requestData.quoteId}.json`, {
     method: 'POST',
     body: JSON.stringify(requestData.commentData),
@@ -87,6 +96,8 @@ export async function addComment(requestData) {
 
   return { commentId: data.name };
 }
+
+
 
 
 
@@ -112,6 +123,6 @@ export async function getAllComments(quoteId) {
 
     transformedComments.push(commentObj);
   }
-  console.log(transformedComments);
+  // console.log(transformedComments);
   return transformedComments;
 }

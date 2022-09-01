@@ -14,12 +14,17 @@ const Comments = () => {
 
   const { quoteId } = params;
   const { sendRequest, status, data: loadedComments } = useHttp(getAllComments);
-  console.log(loadedComments);
+  // console.log(loadedComments);
+
+
 
   useEffect(() => {
 
     sendRequest(quoteId)
   }, [quoteId, sendRequest]);
+
+
+
 
   const startAddCommentHandler = () => {
     setIsAddingComment(true);
